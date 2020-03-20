@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584698029790">
+<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584698877373">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://baidushabi.com/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://baidushabi.com">
-        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584698029790" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584698877373" alt="" width="32px" height="32px">
       </a>
       <a href="https://baidushabi.com">
         <h1 class="site-title">四十五</h1>
@@ -105,9 +105,9 @@
           <div class="post-content">
             <h5 id="闭包火葬场">闭包火葬场。</h5>
 <ul>
-<li>each { } : return ==&gt; (Java) continue ----终止当前闭包执行，不影响后面的循环</li>
-<li>find { } : return true ==&gt; (Java) break ----结束所有闭包，返回当前it；<br>
-return false ==&gt; (Java) contine ----终止当前闭包执行，不影响后面的循环，如果没有return true，最终结果是null，find用于查找值，闭包参数用作终止条件（故需要布尔类型），也可以骚操作用来迭代。</li>
+<li>each { } : return ==&gt; (Java) continue ----终止当前循环执行，继续后面的循环</li>
+<li>find { } : return true ==&gt; (Java) break ----终止所有闭包循环，返回当前it；<br>
+return false ==&gt; (Java) continue ----终止当前循环执行，继续后面的循环，如果最终没有return true，返回结果是null，find用于查找值，闭包参数用作终止条件（故需要布尔类型），也可以骚操作用来迭代。</li>
 <li>with { } : 如果用来实例化类，别忘了返回值！<pre><code class="language-java">def jack = new Person().with {
      name = &quot;jack&quot;
      age = 12
