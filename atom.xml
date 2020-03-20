@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://baidushabi.com</id>
     <title>四十五</title>
-    <updated>2020-03-20T07:35:25.076Z</updated>
+    <updated>2020-03-20T09:53:52.694Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://baidushabi.com"/>
     <link rel="self" href="https://baidushabi.com/atom.xml"/>
@@ -30,6 +30,32 @@ return false ==&gt; (Java) contine ----终止当前闭包执行，不影响后�
 </code></pre>
 </li>
 </ul>
+<h5 id="语法骚断腿使用需谨慎">语法骚断腿，使用需谨慎。</h5>
+<pre><code class="language-java">      // 可以
+      def s = (1..10000).sum()
+      println s
+
+      //不红，会报错
+      println (1..10000).sum()
+
+      //可以，等于第一个
+      println((1..10000).sum())
+
+      //可以，不会报错，但是不太红，不是我们想要的
+      1..10000.each {
+          println it
+      }
+
+      //可以
+      (1..10000).each {
+          println it
+      }
+
+      //索引0开始，用值需谨慎
+      10000.times {
+
+      }
+</code></pre>
 ]]></content>
     </entry>
     <entry>

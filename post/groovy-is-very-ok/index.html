@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584689707227">
+<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584698029790">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://baidushabi.com/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://baidushabi.com">
-        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584689707227" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584698029790" alt="" width="32px" height="32px">
       </a>
       <a href="https://baidushabi.com">
         <h1 class="site-title">四十五</h1>
@@ -117,6 +117,32 @@ return false ==&gt; (Java) contine ----终止当前闭包执行，不影响后�
 </code></pre>
 </li>
 </ul>
+<h5 id="语法骚断腿使用需谨慎">语法骚断腿，使用需谨慎。</h5>
+<pre><code class="language-java">      // 可以
+      def s = (1..10000).sum()
+      println s
+
+      //不红，会报错
+      println (1..10000).sum()
+
+      //可以，等于第一个
+      println((1..10000).sum())
+
+      //可以，不会报错，但是不太红，不是我们想要的
+      1..10000.each {
+          println it
+      }
+
+      //可以
+      (1..10000).each {
+          println it
+      }
+
+      //索引0开始，用值需谨慎
+      10000.times {
+
+      }
+</code></pre>
 
           </div>
         </div>
