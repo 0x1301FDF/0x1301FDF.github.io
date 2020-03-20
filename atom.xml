@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://baidushabi.com</id>
     <title>四十五</title>
-    <updated>2020-03-20T07:32:29.745Z</updated>
+    <updated>2020-03-20T07:35:25.076Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://baidushabi.com"/>
     <link rel="self" href="https://baidushabi.com/atom.xml"/>
@@ -21,15 +21,15 @@
 <li>each { } : return ==&gt; (Java) continue ----终止当前闭包执行，不影响后面的循环</li>
 <li>find { } : return true ==&gt; (Java) break ----结束所有闭包，返回当前it；<br>
 return false ==&gt; (Java) contine ----终止当前闭包执行，不影响后面的循环，如果没有return true，最终结果是null，find用于查找值，闭包参数用作终止条件（故需要布尔类型），也可以骚操作用来迭代。</li>
-<li>with { } : 如果用来实例化类，别忘了返回值！</li>
-</ul>
-<pre><code class="language-java">def jack = new Person().with {
-      name = &quot;jack&quot;
-      age = 12
-      //不return自己，就会返回age，最后jack会变成12
-      return it
-  }
+<li>with { } : 如果用来实例化类，别忘了返回值！<pre><code class="language-java">def jack = new Person().with {
+     name = &quot;jack&quot;
+     age = 12
+     //不return自己，就会返回age，最后jack会变成12
+     return it
+ }
 </code></pre>
+</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
