@@ -1,100 +1,110 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
- <head>
-     <meta charset="utf-8" />
-  <title>写一个maven插件 | 四十五</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-  <link rel="stylesheet" href="https://baidushabi.com/styles/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-   <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
- </head>
- <body>
-     <div class="sidebar animated fadeInDown">
-   <div class="logo-title">
-    <div class="title">
-     <img src="https://baidushabi.com/images/avatar.png?v=1584685865973" style="width:127px;" />
+<html>
+  <head>
+    
+<meta charset="utf-8" >
 
-     <h3 title=""><a href="/">四十五</a></h3>
+<title>写一个maven插件 | 四十五</title>
+<meta name="description" content="随缘写写">
 
-     <div class="description">
-      <p>随缘写写</p>
-     </div>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584686309088">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://baidushabi.com/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://baidushabi.com">
+        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584686309088" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://baidushabi.com">
+        <h1 class="site-title">四十五</h1>
+      </a>
     </div>
-   </div>
-   <ul class="social-links">
-
-
-    <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li>
- 
-    
-
-    
-
-    
-
-    <li><a href="https://github.com/0x1301FDF"><i class="fa fa-github"></i></a></li>
- 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-   </ul>
-   <div class="footer">
-    <div class="by_farbox">
-   自豪的没有采用WordPress！
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
     </div>
-    
-
-    </div>
-   </div>
   </div>
-  <div class="main">
-     <div class="page-top animated fadeInDown">
-    <div class="nav">
-    
-     <li><a  href="/">首页</a></li>
+</div>
 
-     <li><a  href="/archives">归档</a></li>
-
-     <li><a  href="/tags">标签</a></li>
-
-     <li><a  href="/post/friends">朋友</a></li>
-
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/friends" class="menu purple-link">
+            朋友
+          </a>
+        
+      
     </div>
-    <div class="information">
-     <div class="back_btn">
-      <li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li>
-     </div>
-    </div>
-   </div>
-   <div class="autopagerize_page_element">
-    <div class="content">
-     <div class="post-page">
-      <div class="post animated fadeInDown">
-       <div class="post-title">
-        <h3><a>写一个maven插件</a></h3>
-       </div>
-       <div class="post-content">
-        <h3 id="核心类">核心类：</h3>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">写一个maven插件</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-03-06</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://baidushabi.com/tag/ocvE56ViQ/">
+                    maven
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h5 id="核心类">核心类：</h5>
 <p>AbstractMojo</p>
-<h3 id="核心依赖注入">核心依赖注入：</h3>
+<h5 id="核心依赖注入">核心依赖注入：</h5>
 <p>@Parameter(defaultValue = &quot;${project}&quot;, readonly = true)</p>
-<h3 id="参数注入pom或-d">参数注入（pom或-D）：</h3>
+<h5 id="参数注入pom或-d">参数注入（pom或-D）：</h5>
 <p>@Parameter(property = &quot;config.name&quot;)</p>
-<h3 id="重写">重写：</h3>
+<h5 id="重写">重写：</h5>
 <p>execute()</p>
-<h3 id="配置pom">配置pom：</h3>
+<h5 id="配置pom">配置pom：</h5>
 <pre><code class="language-xml">&lt;plugin&gt;
   &lt;groupId&gt;xxx&lt;/groupId&gt;
   &lt;artifactId&gt;xxx&lt;/artifactId&gt;
@@ -114,48 +124,53 @@
 &lt;/plugin&gt;
 </code></pre>
 
-       </div>
-       <div class="post-footer">
-        <div class="meta">
-         <div class="info">
-          <i class="fa fa-sun-o"></i>
-          <span class="date">2019-03-06</span>
-          <i class="fa fa-tag"></i>
-          
-          <a class="tag" href="https://baidushabi.com/tag/ocvE56ViQ/" title="maven">maven </a>
-          
-         </div>
+          </div>
         </div>
-       </div>
-      </div>
-      <div class="share">
-       <div class="evernote">
-        <a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a>
-       </div>
-       <div class="weibo">
-        <a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a>
-       </div>
-       <div class="twitter">
-        <a class="fa fa-twitter" href="http://twitter.com/home?status=,https://baidushabi.com/post/write-a-maven-plugin/,;"></a>
-       </div>
-      </div>
-      <div class="pagination">
-       <ul class="clearfix">
 
-        <li class="pre pagbuttons"><a class="btn" role="navigation" href="https://baidushabi.com/post/groovy-is-very-ok/" title="Groovy一时爽">上一篇</a></li>
-         
         
-       </ul>
       </div>
-        
-     </div>
-    </div>
-   </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">随缘写写</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/0x1301FDF/0x1301FDF.github.io" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
-  <script src="https://baidushabi.com/media/scripts/jquery.js"></script>
-  <script src="https://baidushabi.com/media/scripts/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://baidushabi.com/media/scripts/jquery.appear.js"></script>
+  自豪的没有采用WordPress！ | <a class="rss" href="https://baidushabi.com/atom.xml" target="_blank">RSS</a>
+</div>
 
 
- </body>
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>
