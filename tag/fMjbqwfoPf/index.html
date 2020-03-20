@@ -1,214 +1,172 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    撸码 | 四十五
-</title>
-<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584688958868">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>撸码 | 四十五</title>
+<meta name="description" content="随缘写写">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584689537023">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://baidushabi.com/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://baidushabi.com/media/js/jquery.sticky-sidebar.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://baidushabi.com">
-                <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584688958868" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    四十五
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/friends" class="menu">
-                                    朋友
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://baidushabi.com">
+        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584689537023" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://baidushabi.com">
+        <h1 class="site-title">四十五</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        撸码</b>
-    </div>
-    
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://baidushabi.com/post/groovy-is-very-ok/">
-                        Groovy一时爽
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2020-03-20</time>
-                    
-                        <a href="https://baidushabi.com/tag/2szEjT8pt/" class="post-tag i-tag
-                            i-tag-info">
-            #groovy
-        </a>
-                        
-                        <a href="https://baidushabi.com/tag/fMjbqwfoPf/" class="post-tag i-tag
-                            i-tag-success">
-            #撸码
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                     
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            闭包火葬场。
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/friends" class="menu purple-link">
+            朋友
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
-each { } : return ==&amp;gt; (Java) continue ----终止当前闭包执行，不影响后面的循环
-find { } : return true ==&amp;gt;...
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://baidushabi.com/post/groovy-is-very-ok/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
 
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
+      <div class="content-container">
 
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://baidushabi.com/images/avatar.png?v=1584688958868)">
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> 撸码
+          </h2> 
         </div>
-        <h1 class="id_card-title">
-            四十五
-        </h1>
-        <h2 class="id_card-description">
-            随缘写写
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
-            
-                <a href="https://github.com/0x1301FDF/0x1301FDF.github.io" target="_blank" rel="noopener noreferrer"><i
-                class="fa fa-github"></i></a>
-                
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
 
-        </div>
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://baidushabi.com/post/groovy-is-very-ok/">
+        <h2 class="post-title">Groovy一时爽</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2020-03-20</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://baidushabi.com/tag/2szEjT8pt/">
+                groovy
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://baidushabi.com/tag/fMjbqwfoPf/">
+                撸码
+                
+              </a>
+            
+          </span>
+        
+      </div>
     </div>
     
-
-                        <!-- 公告栏 -->
-                        
-
-                </div>
-            </div>
+  </section>
 
 
-
-            <div class="site-footer">
-  自豪的没有采用WordPress！ |
-  <a class="rss" href="https://baidushabi.com/atom.xml" target="_blank">RSS</a>
+<div class="pagination-container">
+  
+  
 </div>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">随缘写写</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/0x1301FDF/0x1301FDF.github.io" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  自豪的没有采用WordPress！ | <a class="rss" href="https://baidushabi.com/atom.xml" target="_blank">RSS</a>
+</div>
+
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
+    <script type="application/javascript">
 
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>

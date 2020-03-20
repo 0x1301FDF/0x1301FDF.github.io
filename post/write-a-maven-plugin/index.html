@@ -1,129 +1,102 @@
+
+<!DOCTYPE html>
 <html>
-
-<head>
-    <!-- 防止浏览器缓存 -->
-<meta http-equiv="pragma" content="no-cache"> 
-<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
-<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
-
-<!-- ?????? -->
+  <head>
     
-        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/atom-one-light.min.css ">
-        
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    写一个maven插件 | 四十五
-</title>
-<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584688958868">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<meta charset="utf-8" >
+
+<title>写一个maven插件 | 四十五</title>
+<meta name="description" content="随缘写写">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://baidushabi.com/favicon.ico?v=1584689537023">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://baidushabi.com/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://baidushabi.com/media/js/jquery.sticky-sidebar.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-    
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://baidushabi.com">
-                <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584688958868" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    四十五
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/friends" class="menu">
-                                    朋友
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://baidushabi.com">
+        <img class="avatar" src="https://baidushabi.com/images/avatar.png?v=1584689537023" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://baidushabi.com">
+        <h1 class="site-title">四十五</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/friends" class="menu purple-link">
+            朋友
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
 
-        });
-    });
-</script>
-
-        <div id="main-content" class="post-detail main-container">
-            <!-- left -->
-            <div id="content" class="main-container-left">
-                <article class="post i-card">
-                    <h2 class="post-title">
-                        写一个maven插件
-                    </h2>
-                    <div class="post-info">
-                        <time class="post-time">2019-03-06</time>
-                        
-                        <a href="https://baidushabi.com/tag/ocvE56ViQ/"
-                            class="post-tag i-tag
-                            i-tag-info">
-                            #maven
-                        </a>
-                        
-                    </div>
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">写一个maven插件</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-03-06</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://baidushabi.com/tag/ocvE56ViQ/">
+                    maven
                     
-                    <div class="post-content">
-                        <h5 id="核心类">核心类：</h5>
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h5 id="核心类">核心类：</h5>
 <p>AbstractMojo</p>
 <h5 id="核心依赖注入">核心依赖注入：</h5>
 <p>@Parameter(defaultValue = &quot;${project}&quot;, readonly = true)</p>
@@ -151,120 +124,53 @@
 &lt;/plugin&gt;
 </code></pre>
 
-                    </div>
-                </article>
-                <!--  -->
-                
-                <div id="disqus_thread"></div>
-                <div id="gitalk-container"></div>
-                <div id="vcomments"></div>
-                <div class="site-footer">
-  自豪的没有采用WordPress！ |
-  <a class="rss" href="https://baidushabi.com/atom.xml" target="_blank">RSS</a>
+          </div>
+        </div>
+
+        
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">随缘写写</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/0x1301FDF/0x1301FDF.github.io" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  自豪的没有采用WordPress！ | <a class="rss" href="https://baidushabi.com/atom.xml" target="_blank">RSS</a>
 </div>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-            </div>
-            <!-- middle -->
-            <div class="main-container-middle"></div>
-            <!-- right -->
-            <div id="sidebar" class="main-container-right">
-                
-                <!-- toc -->
-                
-    <div class="toc-card i-card ">
-        <div class="toc-title i-card-title">目录</div>
-        <div class="toc-content">
-            <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E6%A0%B8%E5%BF%83%E7%B1%BB">核心类：</a></li>
-<li><a href="#%E6%A0%B8%E5%BF%83%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5">核心依赖注入：</a></li>
-<li><a href="#%E5%8F%82%E6%95%B0%E6%B3%A8%E5%85%A5pom%E6%88%96-d">参数注入（pom或-D）：</a></li>
-<li><a href="#%E9%87%8D%E5%86%99">重写：</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AEpom">配置pom：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-        </div>
-        <script>
-            function locateCatelogList() {
-                /*获取文章目录集合,可通过:header过滤器*/
-                var alis = $('.post-content :header');
-                /*获取侧边栏目录列表集合**/
-                var sidebar_alis = $('.markdownIt-TOC a');
-                /*获取滚动条到顶部的距离*/
-                var scroll_height = $(window).scrollTop();
-                for (var i = 0; i < alis.length; i++) {
-                    /*获取锚点集合中的元素分别到顶点的距离*/
-                    var a_height = $(alis[i]).offset().top;
-                    if (a_height < scroll_height) {
-                        /*高亮显示*/
-                        sidebar_alis.removeClass('on');
-                        $(sidebar_alis[i]).addClass('on');
-                    }
-                }
-            }
-            $(function() {
-                /*绑定滚动事件 */
-                $(window).bind('scroll', locateCatelogList);
-            });
-        </script>
-    </div>
-    
-                
 
-                </div>
-            </div>
 
-            </div>
-            <script>
-                $('#sidebar').stickySidebar({
-                    topSpacing: 80,
-                    // bottomSpacing: 60
-                });
-            </script>
-            <!-- ?????? -->
-            <script>
-                hljs.initHighlightingOnLoad()
-              </script>
-            
-            <script>
-        new Valine({
-            el: '#vcomments',
-            appId: 'UxrC4udscAqTFW22rPcSWzWI-gzGzoHsz',
-            appKey:'FRwVascWmQecjOID70W53tvW',
-            visitor: true // 阅读量统计
-        })
-    </script>
-        </div>
-        
-</body>
-
+  </body>
 </html>
