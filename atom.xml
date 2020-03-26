@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://baidushabi.com</id>
     <title>四十五</title>
-    <updated>2020-03-20T10:08:15.019Z</updated>
+    <updated>2020-03-26T08:20:49.699Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://baidushabi.com"/>
     <link rel="self" href="https://baidushabi.com/atom.xml"/>
@@ -27,6 +27,13 @@ return false ==&gt; (Java) continue ----终止当前循环执行，继续后面�
      //不return自己，就会返回age，最后jack会变成12
      return it
  }
+</code></pre>
+</li>
+<li>闭包嵌套，it傻傻分不清<pre><code class="language-java">each {
+      it.each {
+          println it
+      }
+  }
 </code></pre>
 </li>
 </ul>
